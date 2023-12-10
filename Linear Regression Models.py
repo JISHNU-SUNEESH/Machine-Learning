@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+
+
 
 
 import pandas as pd
@@ -12,7 +13,7 @@ import tensorflow as tf
 from sklearn.model_selection import train_test_split
 
 
-# In[ ]:
+
 
 
 #dataset
@@ -26,7 +27,7 @@ X_train,X_test,y_train,y_test=train_test_split(np.array(feature),np.array(label)
 X_test,y_test
 
 
-# In[ ]:
+
 
 
 #Defining a Model
@@ -48,7 +49,7 @@ model.compile(loss=tf.keras.losses.mean_absolute_error,
 model.fit(X_train,y_train,epochs=100)
 
 
-# In[ ]:
+
 
 
 history=model.fit(X_train,y_train,epochs=100,verbose=0)
@@ -58,26 +59,26 @@ bias=model.get_weights()[1]
 weight,bias
 
 
-# In[ ]:
+
 
 
 model.evaluate(X_test,y_test)
 
 
-# In[ ]:
+
 
 
 y_pred=model.predict(X_test)
 y_pred,y_test,X_test
 
 
-# In[ ]:
+
 
 
 model.summary()
 
 
-# In[ ]:
+
 
 
 #Second Model
@@ -98,13 +99,13 @@ model_2.compile(loss=tf.keras.losses.mean_squared_error,
 model_2.fit(X_train,y_train,epochs=200,verbose=0)
 
 
-# In[ ]:
+
 
 
 model_2.evaluate(X_test,y_test)
 
 
-# In[ ]:
+
 
 
 y_pred=model_2.predict(X_test)
@@ -116,7 +117,7 @@ bias=model_2.get_weights()[1]
 weight,bias,y_pred,y_test
 
 
-# In[ ]:
+
 
 
 #Plotting function
@@ -144,25 +145,21 @@ def plot_metrics(history,hist):
     
 
 
-# In[ ]:
 
 
-hist.iloc[: ,1]
 
-
-# In[ ]:
 
 
 plot_model(X_train,y_train,X_test,y_test,y_pred,weight,bias,feature) 
 
 
-# In[ ]:
+
 
 
 plot_metrics(history,hist)
 
 
-# In[ ]:
+
 
 
 
