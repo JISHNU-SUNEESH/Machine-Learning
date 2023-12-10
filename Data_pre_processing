@@ -1,0 +1,17 @@
+from sklearn.compose import make_column_transformer
+from sklearn.preprocessing import OneHotEncoder,MinMaxScaler
+
+ct=make_column_transformer(
+ (MinMaxScaler(),['Volume','Weight']),
+ #(OneHotEncoder(handle_unknown="ignore"),['Car','Model'])
+)
+
+X=data.drop("CO2",axis=1)
+y=data['CO2']
+
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=42)
+
+ct.fit(X_train)
+
+X_train_normal=ct.transform(X_train)
+X_test_normal=ct.transform(X_test)
