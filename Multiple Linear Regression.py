@@ -27,46 +27,48 @@ label=data['CO2'].astype(np.float32)
 X_train,X_test,y_train,y_test=train_test_split(feature,label,test_size=0.2)
 
 
-# In[259]:
+# In[334]:
 
 
 #Model Creation
 
 model=tf.keras.models.Sequential([
     tf.keras.layers.Dense(units=1,input_shape=[2]),
-    tf.keras.layers.Dense(200),
-    tf.keras.layers.Dense(100),
+    tf.keras.layers.Dense(200,activation='relu'),
+    tf.keras.layers.Dense(100,activation='tanh'),
+    tf.keras.layers.Dense(100,activation='tanh'),
+    tf.keras.layers.Dense(50,activation='tanh'),
     tf.keras.layers.Dense(1)
 ])
 
 model.compile(loss=tf.keras.losses.mean_absolute_error,
-              optimizer=tf.keras.optimizers.Adam(learning_rate=0.27),
+              optimizer=tf.keras.optimizers.Adam(learning_rate=0.265),
               metrics=['mae'])
 
 model.fit(X_train,y_train,epochs=500)
 
 
-# In[256]:
+# In[335]:
 
 
 model.evaluate(X_test,y_test)
 
 
-# In[260]:
+# In[336]:
 
 
 y_pred=model.predict(X_test)
 y_pred,y_test
 
 
-# In[261]:
+# In[337]:
 
 
 mae=tf.keras.metrics.mean_absolute_error(y_test,y_pred)
-mae
+mae.numpy()
 
 
-# In[262]:
+# In[338]:
 
 
 
