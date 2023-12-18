@@ -38,7 +38,7 @@ ConfusionMatrixDisplay.from_predictions(y_test,tf.round(y_pred))
 
 
     
-![png](output_3_2.png)
+![png](/Users/jishnu.suneesh/downloads/Confusion_metrics/output_3_2.png)
     
 
 
@@ -46,4 +46,4 @@ ConfusionMatrixDisplay.from_predictions(y_test,tf.round(y_pred))
 ```python
 
 ```
-!["Confusion_metrix"]["/Users/jishnu.suneesh/downloads/Confusion_metrics"]
+
