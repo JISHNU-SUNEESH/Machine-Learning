@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 
 ```python
-cardio=pd.read_csv('/Users/jishnu.suneesh/documents/cardio_vascular_disease.csv',delimiter=',')
+cardio=pd.read_csv('cardio_vascular_disease.csv',delimiter=',')
 ```
 
 
